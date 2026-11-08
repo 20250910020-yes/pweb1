@@ -17,7 +17,7 @@ body {
   background: #fff;
 }
 
-/* ===== Wadah utama (full layar) ===== */
+/* ===== Wadah utama ===== */
 .container {
   width: 100%;
   min-height: 100vh;
@@ -33,18 +33,19 @@ body {
 }
 
 .header-gambar {
-  height: auto;
-  background: #f1f3f5;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
 }
 
 .header-gambar img {
   width: 100%;
-  max-width: 800px;
-  aspect-ratio: 16/9;
+  height: 100%;
   object-fit: cover;
-  display: block;
-  margin: 0 auto;
 }
+
 
 /* ===== MENU ===== */
 .menu {
@@ -71,7 +72,7 @@ body {
 
 .menu a:hover,
 .menu a:focus-visible {
-  background: #1f3a5f;
+  background: lightblue;
   color: #fff;
   outline: none;
 }
@@ -81,16 +82,27 @@ body {
   margin: 12px;
   padding: 14px 16px;
   border: 2px solid #333;
-  background: #fffbe6;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
 }
 
-.baner h2 {
-  font-size: 15px;
-  margin-bottom: 2px;
+.baner-foto {
+  width: 750px;
+  height: 400px;     
+  aspect-ratio: 16 / 9;    
+  flex-shrink: 0;
+  background: #dee2e6;     
+  overflow: hidden;
 }
 
-.baner p {
-  font-style: italic;
+.baner-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* ===== ISI (2 kolom) ===== */
@@ -201,31 +213,148 @@ body {
 .footer {
   text-align: center;
   padding: 12px;
-  border-top: 2px solid #333;
-  background: #1f3a5f;
+  border-top: 2px solid lightblue;
+  background: lightblue;
   color: #fff;
   font-weight: 700;
   letter-spacing: 1px;
 }
 
-/* ===== Responsif (HP / layar kecil) ===== */
+/* ===== Profile Keluarga ===== */
+
+/* ===== Foto keluarga ===== */
+.foto-box {
+  aspect-ratio: 16 / 9;
+  max-height: 600px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:white;
+  color: black;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.foto-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Kartu anggota keluarga ===== */
+.grid-anggota {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+}
+
+.kartu {
+  border: 2px solid black;
+  padding: 16px 12px;
+  text-align: center;
+  background: white;
+}
+
+.kartu .avatar {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  border: 3px solid lightblue;
+  background: lightblue;
+  color: white;
+  font-size: 36px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.kartu .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kartu h4 {
+  font-size: 15px;
+}
+
+.kartu .peran {
+  display: inline-block;
+  margin: 4px 0 8px;
+  padding: 1px 10px;
+  border: 1px solid black;
+  background: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.kartu p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.kartu:hover {
+  background: #fffbe6;
+}
+
+.sub-judul {
+  font-size: 13px;
+  margin: 16px 0 8px;
+  text-decoration: underline;
+}
+
+.foto-box + .sub-judul {
+  margin-top: 16px;
+}
+
+/* ===== Layar kecil (HP): sidebar tetap di samping ===== */
 @media (max-width: 720px) {
-  .isi {
-    flex-direction: column;
+  body {
+    font-size: 13px;
   }
 
-  .konten {
-    border-right: none;
-    border-bottom: 2px solid #333;
-  }
-
-  .sidebar {
-    width: 100%;
+  .header-gambar {
+    height: 110px;
+    font-size: 16px;
   }
 
   .menu a {
-    flex: 1 1 45%;
-    text-align: center;
-    border-bottom: 1px solid #333;
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .konten {
+    padding: 8px;
+  }
+
+  .baner {
+  flex-direction: column;
+  text-align: center;
+  }
+
+  .baner-foto {
+  width: 100%;
+  }
+
+  .sidebar {
+    width: 34%;
+    padding: 8px;
+  }
+
+  .kotak {
+    padding: 8px 10px;
+  }
+
+  .kotak td:first-child {
+    width: 90px;
+  }
+
+  .kotak-side {
+    padding: 8px;
   }
 }
